@@ -1,0 +1,72 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/style/user.css">
+
+</head>
+<body>
+
+<!--<nav class="navbar navbar-inverse">-->
+<nav class="navbar navbar-dark bg-success">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Greenway Nursery</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">All products</a></li>
+            <li><a href="#">Customer Login</a></li>
+            <li><a href="#">Registration</a></li>
+            <li><a href="#">ContactUs</a></li>
+
+        </ul>
+    </div>
+</nav>
+
+<div id="rightlogin">
+
+    <form class="form-horizontal"action="#" th:action="@{/addUser}" th:object="${user}" method="post">
+        <table align="center">
+            <tr>
+                <td>FirstName:</td>
+                <td><input type="text" th:field="*{Firstname}"></td>
+            </tr>
+            <tr>
+                <td>LastName:</td>
+                <td><input type="text" th:field="*{Lastname}"></td>
+            </tr>
+
+            <tr>
+                <td>Email:</td>
+                <td><input type="text" th:field="*{Email}"></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="Password" th:field="*{Password}"></td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td><input type="Address" th:field="*{Address}"></td>
+            </tr>
+
+            <tr>
+
+               <!-- <td colspan="2"><input type="button" value="Submit" onclick=check()>-->
+                <td colspan="2"><input type="submit" value="Submit">
+
+            </tr>
+        </table>
+
+    </form>
+</div>
+</body>
+</html>

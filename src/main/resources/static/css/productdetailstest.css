@@ -1,0 +1,64 @@
+/*sas
+.product form{
+    width:500px;
+}*/
+
+
+
+.product input{
+display:inline-block;
+ width:100%;
+margin:10px;
+    border:3px solid #ddd;
+    padding:10px ;
+    box-sizing:border-box;
+    border-radius:4px;
+    width:100%;
+
+}
+.product label{
+    width:100px;
+    display:inline-block;
+    margin:10px;
+}
+
+.product h1{
+    text-align: center;
+     margin-top:100px;
+     margin-left: 550px;
+     background-color: rgb(242, 250, 240);
+       width:500px;
+}
+
+.product form{
+    margin-top:100px;
+    margin-left: 550px;
+    background-color: rgb(242, 250, 240);
+     width:500px;
+}
+
+.product label{
+    width:200px;
+    display:inline-block;
+    margin:10px;
+    border:2px solid #ddd;
+}
+.product select{
+    border:1px solid #ddd;
+    width:200px;
+}
+.product button{
+    margin-left:auto;
+    margin-right:auto;
+    width: 10px;
+    padding: 10px;
+    margin:100px;
+}
+.product tr{
+    margin-left:auto;
+    margin-right:auto;
+    height: 50px;
+    padding: 10px;
+    margin:100px;
+
+}

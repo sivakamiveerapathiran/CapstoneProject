@@ -1,0 +1,76 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-success">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Greenway Nursery</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/menu/home">Home</a></li>
+            <li><a href="/menu/about">About</a></li>
+            <li><a href="/menu/allProducts">All products</a></li>
+            <li><a href="/menu/login">Customer Login</a></li>
+            <li><a href="/menu/registration">Registration</a></li>
+            <li><a href="/menu/contactUs">ContactUs</a></li>
+        </ul>
+    </div>
+</nav>
+
+<form action="#" th:action="@{/product/addProductAdmin}" th:object="${product}" enctype="multipart/form-data" method="post">
+    <table align="center">
+        <tr>
+            <td>ProductID:</td>
+            <td><input type="text" th:field="*{id}"></td>
+        </tr>
+        <tr>
+            <td>ProductName:</td>
+            <td><input type="text" th:field="*{productName}"></td>
+        </tr>
+        <tr>
+            <td>ProductDescription:</td>
+            <td><input type="text" th:field="*{productDesc}"></td>
+        </tr>
+        <tr>
+            <td>Quantity:</td>
+            <td><select th:field="*{Quantity}">
+                <option th:each="i : ${#numbers.sequence(0, 100)}" th:value="${i}" th:text="${i}">
+                </option>
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td><input type="text" th:field="*{price}"></td>
+        </tr>
+        <tr>
+            <td>Image:</td>
+            <td><!--<input type="file" th:field="*{ImageFile}">-->
+                <input type="file" name="ImageFile" accept="image/png, image/jpeg, image/jpg" /></td>
+        </tr>
+        <tr>
+
+            <!-- <td colspan="2"><input type="button" value="Submit" onclick=check()>-->
+            <td colspan="2"><input type="submit" value="Submit">
+
+        </tr>
+    </table>
+
+</form>
+
+</body>
+
+</html>
