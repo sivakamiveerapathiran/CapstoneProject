@@ -44,11 +44,11 @@
         </rollingPolicy>
     </appender>
 
-    <logger name="org.springframework" level="INFO" additivity="false">
+    <logger name="org.springframework" level="WARN" additivity="false">
         <appender-ref ref="STDOUT" />
         <appender-ref ref="FILE-AUDIT" />
     </logger>
-    <logger name="com.example.firsdemo" level="INFO" additivity="false">
+    <logger name="org.sivakamiveerapathiran.onlinenursery" level="INFO" additivity="false">
         <appender-ref ref="STDOUT" />
         <appender-ref ref="FILE-AUDIT" />
     </logger>

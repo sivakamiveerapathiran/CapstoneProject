@@ -1,5 +1,12 @@
 package org.sivakamiveerapathiran.onlinenursery.service;
-
+/***************************
+ * Author: Sivakami Veerapathiran
+ * Description: This Class contains the implementation for the Order Interface.
+ *
+ * Methods:
+ * createOrder -  This method is used to create an Order for the user.
+ ***************************/
+import lombok.extern.slf4j.Slf4j;
 import org.sivakamiveerapathiran.onlinenursery.models.*;
 import org.sivakamiveerapathiran.onlinenursery.repository.OrderRepository;
 import org.sivakamiveerapathiran.onlinenursery.repository.ShoppingCartRepository;
@@ -8,7 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Calendar;
 import java.util.List;
-
+@Slf4j
 @Service
 public class OrderServiceImpl  implements OrderService {
     @Autowired
@@ -22,14 +29,13 @@ public class OrderServiceImpl  implements OrderService {
     @Override
     public Order createOrder(ShoppingCart shoppingCart, ShippingAddress shippingAddress, BillingAddress billingAddress, Payment payment, User user) {
 
+        log.info("Inside createOrder Method");
 
         Order order = new Order();
         order.setBillingAddress(billingAddress);
         order.setOrderStatus("created");
         order.setPayment(payment);
        order.setShippingAddress(shippingAddress);
-       /* order.setShippingMethod(shippingMethod);
-       */
         List<CartList> cartItemList = cartListService.findByShoppingCart(shoppingCart);
 
         for (CartList cartItem : cartItemList) {

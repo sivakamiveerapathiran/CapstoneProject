@@ -1,5 +1,8 @@
 package org.sivakamiveerapathiran.onlinenursery.models;
-
+/***************************
+ * Author: Sivakami Veerapathiran
+ * Description: This Class contains the POJO for the Product entity.
+ ***************************/
 import jakarta.persistence.*;
 
 import lombok.Getter;
@@ -40,7 +43,8 @@ public class Product {
         this.productToCart = productToCart;
     }
     public String getImageFileName() {
-       return "/images/"+imageFileName;
+      // return "/images/"+imageFileName;
+        return "/upload/static/images/"+imageFileName;
        // return imageFileName;
         //return "static/Images/" +ImageFileName;
         // return ImageFileName;

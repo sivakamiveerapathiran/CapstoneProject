@@ -1,5 +1,8 @@
 package org.sivakamiveerapathiran.onlinenursery.service;
-
+/***************************
+ * Author: Sivakami Veerapathiran
+ * Description: This Class contains the interface for the Roletable entity.
+ ***************************/
 import org.sivakamiveerapathiran.onlinenursery.models.RoleTable;
 
 import java.util.List;

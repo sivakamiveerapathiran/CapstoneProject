@@ -1,5 +1,8 @@
 package org.sivakamiveerapathiran.onlinenursery.service;
-
+/***************************
+ * Author: Sivakami Veerapathiran
+ * Description: This Class contains the interface for the Product entity.
+ ***************************/
 import org.sivakamiveerapathiran.onlinenursery.models.Product;
 import org.springframework.web.multipart.MultipartFile;
 

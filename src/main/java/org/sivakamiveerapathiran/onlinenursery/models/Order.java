@@ -1,5 +1,8 @@
 package org.sivakamiveerapathiran.onlinenursery.models;
-
+/***************************
+ * Author: Sivakami Veerapathiran
+ * Description: This Class contains the POJO for the Orders entity.
+ ***************************/
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

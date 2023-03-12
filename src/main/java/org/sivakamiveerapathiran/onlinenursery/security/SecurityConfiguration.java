@@ -1,5 +1,11 @@
 package org.sivakamiveerapathiran.onlinenursery.security;
-
+/***************************
+ * Author: Sivakami Veerapathiran
+ * Description: This Class contains the Security filterchain  for the Project.
+ *
+ * Methods:
+ * filterChain - used to build the filterchain for the login project
+ ***************************/
 
 import org.sivakamiveerapathiran.onlinenursery.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,12 +56,15 @@ public class SecurityConfiguration implements Serializable {
                         "Shoppingcart",
                         "/cartList/shoppingCartUpdate/*","/cartList/updateCartList/",
                         "/cartList/shoppingCartDelete/","/cartList/deleteCartList",
-                        "/shoppingCart/addItemtoShoppingCart","/order/*","/product/addProductToCart/")
+                        "/shoppingCart/addItemtoShoppingCart","/order/*","/product/addProductToCart/",
+                        "/product/loginListProducts")
                 .hasAnyRole("USER","ADMIN")
                 //.anyRequest().authenticated()
                 .requestMatchers("/product/adminUpdate","/product/addProductAdmin/*",
                         "/product/addProductAdmin/","/product/addProduct/*",
-                        "/product/addNewProductAdmin/")
+                        "/product/addNewProductAdmin/",
+                        "/product/deleteProductToCart/",
+                        "adminDeleteItem")
                 .hasAnyRole("ADMIN")
                 .and().formLogin().loginPage("/login")
                 .loginProcessingUrl("/home")

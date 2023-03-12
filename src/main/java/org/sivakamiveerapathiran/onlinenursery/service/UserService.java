@@ -1,5 +1,8 @@
 package org.sivakamiveerapathiran.onlinenursery.service;
-
+/***************************
+ * Author: Sivakami Veerapathiran
+ * Description: This Class contains the interface for the User entity.
+ ***************************/
 import org.sivakamiveerapathiran.onlinenursery.models.ShoppingCart;
 import org.sivakamiveerapathiran.onlinenursery.models.User;
 import org.springframework.security.core.userdetails.UserDetails;

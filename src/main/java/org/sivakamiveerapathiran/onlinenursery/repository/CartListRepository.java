@@ -1,5 +1,8 @@
 package org.sivakamiveerapathiran.onlinenursery.repository;
-
+/***************************
+ * Author: Sivakami Veerapathiran
+ * Description: This Class contains the Repository for the Cartlist entity.
+ ***************************/
 import org.sivakamiveerapathiran.onlinenursery.models.CartList;
 import org.sivakamiveerapathiran.onlinenursery.models.ShoppingCart;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,5 +1,8 @@
 package org.sivakamiveerapathiran.onlinenursery.security;
-
+/***************************
+ * Author: Sivakami Veerapathiran
+ * Description: This Class contains the Security UserPrincipal  for the Project.
+ ***************************/
 
 import org.sivakamiveerapathiran.onlinenursery.models.RoleTable;
 import org.sivakamiveerapathiran.onlinenursery.models.User;

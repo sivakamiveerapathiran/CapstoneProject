@@ -1,5 +1,8 @@
 package org.sivakamiveerapathiran.onlinenursery.models;
-
+/***************************
+ * Author: Sivakami Veerapathiran
+ * Description: This Class contains the POJO for the CartList entity.
+ ***************************/
 import jakarta.persistence.*;
 
 import java.util.List;

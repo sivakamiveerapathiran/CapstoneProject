@@ -1,3 +1,8 @@
+/***************************
+ * Author: Sivakami Veerapathiran
+ * Description: This Class contains the POJO for the BillingAddress entity.
+ ***************************/
+
 package org.sivakamiveerapathiran.onlinenursery.models;
 
 import jakarta.persistence.*;

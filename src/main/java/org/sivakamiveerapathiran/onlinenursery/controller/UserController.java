@@ -1,3 +1,9 @@
+/***************************
+ * Author: Sivakami Veerapathiran
+ * Description: This Class contains the controller methods for the User  Functionalities.
+ * Methods:
+ * createUser - This Method is used to create a User in DB.
+ ***************************/
 package org.sivakamiveerapathiran.onlinenursery.controller;
 
 import org.sivakamiveerapathiran.onlinenursery.service.UserService;
@@ -12,18 +18,12 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class UserController {
 
-    //private static final Logger logger
-     //       = LoggerFactory.getLogger(UserController.class);
      private UserService userService;
     @GetMapping("/user/register")
     public String registerForm(Model model) {
-
-        log.trace("A TRACE Message");
-        log.debug("A DEBUG Message");
-        log.info("An INFO Message");
-        log.warn("A WARN Message");
-        log.error("An ERROR Message");
+        log.info("Inside registerForm Method");
         model.addAttribute("user",new User() );
+        log.info("Loading register page");
         return "register";
     }
 
@@ -33,22 +33,16 @@ public class UserController {
         this.userService = userService;
   }
 
-    @PostMapping("/user/addUser")
+  @PostMapping("/user/addUser")
    public  String createUser(@ModelAttribute("user")User user)
         {
-
+            log.info("Inside createUser Method");
          String response="";
-//try {
+
      userService.createUser(user);
-     response="User created";
-//}
-/*catch(Exception e){
-    e.printStackTrace();
-    response=e.toString();
-    log.info(e.toString());
-}*/
-// return ResponseEntity.status(HttpStatus.CREATED).body(response);
-            return "redirect:/product/listAllProducts";
+            log.info("redirect:/product/listAllProducts");
+
+     return "redirect:/product/listAllProducts";
         }
 
 }

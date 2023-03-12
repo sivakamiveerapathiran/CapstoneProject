@@ -1,5 +1,13 @@
 package org.sivakamiveerapathiran.onlinenursery.service;
-
+/***************************
+ * Author: Sivakami Veerapathiran
+ * Description: This Class contains the implementation for the User table Interface.
+ * Methods:
+ * createUser - This method is used to create an user from the data from the screen.
+ * findByUserId - This method is used to find a shopping cart by user id. If not found, it creates a new shopping cart for the user.
+ * inquireByUserId - This method is used to find a shopping cart by user id.
+ * loadUserByUsername - This method is used to create a new UserPrincipal object by the user ID
+ ***************************/
 import org.sivakamiveerapathiran.onlinenursery.exception.CustomerAlreadyExistsException;
 import org.sivakamiveerapathiran.onlinenursery.models.RoleTable;
 import org.sivakamiveerapathiran.onlinenursery.repository.ShoppingCartRepository;
@@ -52,7 +60,6 @@ public class UserServiceImpl implements UserService {
             user.setRoles(Arrays.asList(roleTableService.findRoleByRoleName("ROLE_USER")));
             retuser =userrepo.save(user);}
         else {
-           // throw new RuntimeException("User already Exist");
             throw new CustomerAlreadyExistsException(
                     "Customer already exists!!");
         }
@@ -103,17 +110,10 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
 
-        System.out.println("loadUserByUsername");
         User user = userrepo.findByEmail(userName);
-        System.out.println("1:loadUserByUsername");
         if (user == null) {
-            // log.warn("Invalid username or password {}", userName);
-
             throw new UsernameNotFoundException("Invalid username or password.");
         }
-        System.out.println("2:loadUserByUsername");
-       /* return new org.springframework.security.core.userdetails.User(user.getUserName(), user.getPassword(),
-                mapRolesToAuthorities(user.getRoles()));*/
         return new UserPrincipal(user, roleTableService.getRolesByUser(user.getId()));
     }
 

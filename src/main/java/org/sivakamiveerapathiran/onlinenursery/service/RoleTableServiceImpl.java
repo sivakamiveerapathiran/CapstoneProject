@@ -1,6 +1,9 @@
 package org.sivakamiveerapathiran.onlinenursery.service;
 
-
+/***************************
+ * Author: Sivakami Veerapathiran
+ * Description: This Class contains the implementation for the RoleTable Interface.
+ ***************************/
 import org.sivakamiveerapathiran.onlinenursery.repository.RoleTableRepository;
 import org.sivakamiveerapathiran.onlinenursery.models.RoleTable;
 import org.springframework.beans.factory.annotation.Autowired;

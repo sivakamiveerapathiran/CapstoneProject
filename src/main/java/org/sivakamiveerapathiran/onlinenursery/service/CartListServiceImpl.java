@@ -1,5 +1,12 @@
 package org.sivakamiveerapathiran.onlinenursery.service;
-
+/***************************
+ * Author: Sivakami Veerapathiran
+ * Description: This Class contains the implementation for the Cartlist Interface.
+ *
+ * Methods:
+ * addProductToCartList -  This method is used to add a product to user shopping Cart
+ ***************************/
+import lombok.extern.slf4j.Slf4j;
 import org.sivakamiveerapathiran.onlinenursery.repository.CartListRepository;
 import org.sivakamiveerapathiran.onlinenursery.models.CartList;
 import org.sivakamiveerapathiran.onlinenursery.models.Product;
@@ -9,6 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+@Slf4j
 @Service
 public class CartListServiceImpl implements CartListService {
 
@@ -32,21 +41,19 @@ public class CartListServiceImpl implements CartListService {
         boolean isitemfound = false;
         // List<ShoppingCart> tmpshopcart=user.getShoppingCart();
         ShoppingCart tmpshopcart = userService.findByUserId(user);
-        System.out.println("1");
+        log.info("Inside addProductToCartList Method");
 
          if(tmpshopcart!=null) {
-             System.out.println("2");
-
+             log.info("Inside addItemtoShoppingCart Method");
              ShoppingCart shpcart=tmpshopcart;
 
-             System.out.println("XXshpcart ID: "+ shpcart.getId());
+             log.debug("shpcart ID: "+ shpcart.getId());
              List<CartList> cartList = findByShoppingCart(shpcart);
             for (CartList cartItem : cartList) {
-                System.out.println("3");
                  System.out.println(cartItem.getProduct().getId());
                  if (product.getId() == cartItem.getProduct().getId()) {
-                     System.out.println("4");
-                     System.out.println("Indside:" + cartItem.getProduct().getId());
+
+                     log.debug("cartItem.getProduct().getId(): "+ cartItem.getProduct().getId());
                      cartItem.setAmount(cartItem.getAmount() + amount);
                      cartItem.setSubtotal(product.getPrice() * amount);
                      cartListRepo.save(cartItem);
@@ -55,24 +62,20 @@ public class CartListServiceImpl implements CartListService {
                      // return cartItem;
 
                  }
-                System.out.println("5");
              }
-             System.out.println("6");
          }
          else
          {
-             System.out.println("7");
              iscartempty=true;
          }
-        System.out.println("iscartempty: "+iscartempty);
-        System.out.println("isitemfound: "+ isitemfound);
+        log.debug("iscartempty: "+iscartempty);
+        log.debug("isitemfound: "+ isitemfound);
         if ((!isitemfound)) {
-            System.out.println(" new Indside:");
             ShoppingCart shopcart = userService.findByUserId(user);
 
             CartList cartListItem = new CartList();
 
-            System.out.println("shopcart:"+shopcart.getId());
+            log.debug("shopcart 2: "+shopcart.getId());
             cartListItem.setShoppingCart(shopcart);
             cartListItem.setProduct(product);
 

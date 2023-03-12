@@ -54,8 +54,11 @@
             <td th:text="${products.price}"></td>
             <td>
                 <a th:href="@{'/product/addProductAdmin/{id}'(id=${products.id})}" >
-                    <button type="button"  text="Edit">Edit</button>
-                </a>
+                    <button type="button"  text="Edit">Edit</button></a>
+               <a th:href="@{'/product/deleteProductToCart/{id}'(id=${products.id})}" >
+                <button type="button"  text="Edit">Delete</button></a>
+
+
             </td>
         </tr>
         </tbody>

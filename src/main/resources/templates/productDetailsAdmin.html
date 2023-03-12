@@ -33,8 +33,8 @@
 <form action="#" th:action="@{/product/addProductAdmin}" th:object="${product}" enctype="multipart/form-data" method="post">
     <table align="center">
         <tr>
-            <td>ProductID:</td>
-            <td><input type="text" th:field="*{id}"></td>
+            <td></td>
+            <td><input type="hidden" th:field="*{id}" name="id"></td>
         </tr>
         <tr>
             <td>ProductName:</td>

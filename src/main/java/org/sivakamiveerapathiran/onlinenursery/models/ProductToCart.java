@@ -1,5 +1,8 @@
 package org.sivakamiveerapathiran.onlinenursery.models;
-
+/***************************
+ * Author: Sivakami Veerapathiran
+ * Description: This Class contains the POJO for the ProductToCart entity.
+ ***************************/
 import jakarta.persistence.*;
 
 @Entity

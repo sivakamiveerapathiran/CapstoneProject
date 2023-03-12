@@ -1,5 +1,13 @@
+/***************************
+ * Author: Sivakami Veerapathiran
+ * Description: This Class contains the controller methods for the Order Screens.
+ * Methods:
+ * listProducts -  This method is used to launch the Order Screen with Shopping Cart, Shipping Address, Billing Address and Payment
+ * CreateOrder -  This method is used to create and order in the Data base
+ ***************************/
 package org.sivakamiveerapathiran.onlinenursery.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.sivakamiveerapathiran.onlinenursery.models.*;
 import org.sivakamiveerapathiran.onlinenursery.security.UserPrincipal;
 import org.sivakamiveerapathiran.onlinenursery.service.*;
@@ -13,7 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.io.IOException;
 import java.util.List;
-
+@Slf4j
 @Controller
 public class OrderController {
     @Autowired
@@ -35,6 +43,7 @@ public class OrderController {
    @GetMapping("/order/checkOutPage")
     //public ResponseEntity<?>  listProducts(Model model){
     public String listProducts(Model model){
+       log.info("Inside listProducts Method");
        // model.addAttribute("product",cartListService.getAllProducts());
        UserPrincipal usrprin=(UserPrincipal) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
        System.out.println("UserName: "+usrprin.getUsername());
@@ -43,16 +52,12 @@ public class OrderController {
         ShoppingCart shoppingCart=userService.findByUserId(user);
         List<CartList> res=cartListService.getAllProducts(shoppingCart);
 
-        for(CartList resitem:res){
-            System.out.println(resitem.getProduct().getProductName());
-            System.out.println(resitem.getShoppingCart().getId());
 
-        }
         model.addAttribute("cartlistresult",res);
        model.addAttribute("billingaddress", new BillingAddress());
        model.addAttribute("shippingaddress", new ShippingAddress());
        model.addAttribute("payment", new Payment());
-
+       log.info("Loading OrderList Page");
        return "OrderList";
     }
 
@@ -61,7 +66,7 @@ public class OrderController {
                                          @ModelAttribute("billingaddress") BillingAddress billingaddress,
                                          @ModelAttribute("payment") Payment payment)
                    throws IOException {
-
+        log.info("Inside CreateOrder Method");
         System.out.println("billingaddress: "+billingaddress.toString());
 
         System.out.println("shippingaddress: "+shippingaddress.toString());
@@ -74,7 +79,7 @@ public class OrderController {
 
 
         //  public Order createOrder(ShoppingCart shoppingCart, ShippingAddress shippingAddress, BillingAddress billingAddress, Payment payment, User user) {
-
+        log.info("redirect:/product/listAllProducts");
         return "redirect:/product/listAllProducts";
            // return ResponseEntity.status(HttpStatus.CREATED).body("Order created");
     }

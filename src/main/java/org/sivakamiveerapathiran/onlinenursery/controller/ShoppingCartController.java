@@ -1,3 +1,9 @@
+/***************************
+ * Author: Sivakami Veerapathiran
+ * Description: This Class contains the controller methods for the Shopping Cart Functionalities.
+ * Methods:
+ * addItemtoShoppingCart - This Method is used to add an item to Shopping Cart.
+ ***************************/
 package org.sivakamiveerapathiran.onlinenursery.controller;
 
 
@@ -37,8 +43,9 @@ public class ShoppingCartController {
 
 
     @PostMapping("/shoppingCart/addItemtoShoppingCart")
-     public String addItemtoShoppingCart(Model model,
+         public String addItemtoShoppingCart(Model model,
               @RequestParam("productid") int productid, @RequestParam("quantity") int RequiredQty){
+        log.info("Inside addItemtoShoppingCart Method");
         try{
             UserPrincipal usrprin=(UserPrincipal) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             System.out.println("UserName: "+usrprin.getUsername());
@@ -51,6 +58,7 @@ public class ShoppingCartController {
             log.info(e.toString());
 
         }
+        log.info("redirect:/product/listAllProducts");
          return "redirect:/product/listAllProducts";
     }
 
