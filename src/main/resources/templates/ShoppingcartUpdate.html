@@ -1,0 +1,73 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
+    <!--<link rel="stylesheet" type="text/css" href="../static/style/productdetailsnew.css">-->
+    <!--<link rel="stylesheet" th:href="@{/css/productdetailsnew.css}">-->
+    <link th:href="@{/css/productdetailstest.css}" rel="stylesheet" />
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+
+
+</head>
+<nav class="navbar navbar-dark bg-success">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Greenway Nursery</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/menu/home">Home</a></li>
+            <li><a href="/menu/about">About</a></li>
+            <li><a href="/menu/allProducts">All products</a></li>
+            <li><a href="/menu/login">Customer Login</a></li>
+            <li><a href="/menu/registration">Registration</a></li>
+            <li><a href="/menu/contactUs">ContactUs</a></li>
+        </ul>
+    </div>
+</nav>
+<body>
+<div class="product">
+    <h1>Product Details</h1>
+   <form action="#" th:action="@{/cartList/updateCartList}"   th:object="${product}"  method="post">
+        <table align="center">
+           <tr>
+                <td></td>
+                <td><input type="hidden" th:field="${cartlist.id}" name="id"></td>
+            </tr>
+
+            <tr>
+                <td>Product Name:</td>
+                <!-- <td th:text="${product.productname}"></td>-->
+                <td><input type="hidden" th:text="${product.productName}" name="productName" th:value="${product.productName}"></td>
+            </tr>
+            <tr>
+                <td>Product Description:</td>
+                <!--  <td th:text="${product.id}"></td>-->
+                <td> <input type="hidden" th:text="${product.productDesc}"  name="productDesc" th:value="${product.productDesc}"></td>
+            </tr>
+            <tr>
+                <td>Required Quantity:</td>
+                <td><select th:field="${cartlist.amount}">
+                    <option th:each="i : ${#numbers.sequence(0, 100)}" th:value="${i}" th:text="${i}">
+                    </option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"> <input type="submit" value="Update">
+            </tr>
+        </table>
+
+       </form>
+
+</div>
+
+</body>
+</html>

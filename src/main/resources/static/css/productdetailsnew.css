@@ -1,0 +1,59 @@
+/*sas
+.product form{
+    width:500px;
+}*/
+
+input{
+    width:100%;
+}
+
+input{
+    border:1px solid #ddd;
+}
+label{
+    width:100px;
+    display:inline-block;
+    margin:10px;
+}
+
+.product h1{
+    text-align: center;
+     margin-top:100px;
+     margin-left: 550px;
+     background-color: rgb(242, 250, 240);
+       width:500px;
+}
+
+.product form{
+    margin-top:100px;
+    margin-left: 550px;
+    background-color: rgb(242, 250, 240);
+     width:500px;
+}
+
+.product label{
+    width:200px;
+    display:inline-block;
+    margin:10px;
+    border:0px solid #ddd;
+}
+.product select{
+    border:1px solid #ddd;
+    width:200px;
+}
+
+.product tr{
+    margin-left:auto;
+    margin-right:auto;
+    height: 100px;
+    padding: 10px;
+    margin:100px;
+}
+.product button{
+    margin-left:auto;
+    margin-right:auto;
+    width: 100%;
+    padding: 10px;
+    margin:100px;
+}
+

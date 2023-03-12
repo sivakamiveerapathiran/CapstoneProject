@@ -1,0 +1,18 @@
+#rightlogin form{
+    position:fixed;
+    top:40%;
+    left:40%;
+    width:30%;
+    }
+    #rightlogin table{
+        border-collapse: collapse;
+
+    }
+    #rightlogin
+        th, td {
+            width:150px;
+            text-align:center;
+            border:1px solid black;
+            padding:5px
+
+        }

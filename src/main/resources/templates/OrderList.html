@@ -1,0 +1,217 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+    <link th:href="@{/css/button.css}" rel="stylesheet" />
+
+
+</head>
+<style type="text/css">
+label{
+width:100px;
+display:inline-block;
+</style>
+<body>
+
+<nav class="navbar navbar-dark bg-success">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Greenway Nursery</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/menu/home">Home</a></li>
+            <li><a href="/menu/about">About</a></li>
+            <li><a href="/menu/allProducts">All products</a></li>
+            <li><a href="/menu/login">Customer Login</a></li>
+            <li><a href="/menu/registration">Registration</a></li>
+            <li><a href="/menu/contactUs">ContactUs</a></li>
+        </ul>
+    </div>
+</nav>
+<form class="border-class" action="#" th:action="@{/order/confirmOrderList}"  method="post">
+<div class="container">
+    <div class="row">
+        <h3 style="text-align:center;">ShoppingCart</h3>
+    </div>
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+            <tr>
+                <!--<th>shoppingCartId</th>
+                <th>ProductID</th>-->
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="cartlistitem:${cartlistresult}">
+                <!-- <td th:text="${cartlistitem.shoppingCart.id}"></td>
+                <td th:text="${cartlistitem.product.id}"></td>-->
+                <td th:text="${cartlistitem.product.productName}"></td>
+                <td th:text="${cartlistitem.subtotal}"></td>
+                <td th:text="${cartlistitem.amount}"></td>
+
+            </tr>
+            </tbody>
+        </table>
+</div>
+    <div class="container">
+
+        <div class="row">
+
+            <h3 style="text-align:center;">Billing Address</h3>
+        </div>
+
+        <table class="table table-striped table-bordered" style="display:inlineElements">
+        <tr>
+
+            <td>
+                <label>Name:</label>
+                <input type="text" th:field ="*{billingaddress.name}" id="bi_name" name="bi_name" placeholder="" class="input-xlarge" >
+
+
+            </td>
+        </tr>
+            <tr>
+            <td>
+                <label>Address1:</label>
+                <input type="text" th:field ="*{billingaddress.address1}" id="bi_Address1" name="bi_Address1" placeholder="" class="input-xlarge" >
+
+
+            </td>
+            </tr>
+            <tr>
+            <td>
+                <label>Address2:</label>
+                <input type="text" th:field ="*{billingaddress.address2}"id="bi_Address2" name="bi_Address2" placeholder="" class="input-xlarge" >
+            </td>
+            </tr>
+        <tr>
+            <td>
+                <label>City:</label>
+                <input type="text" th:field ="*{billingaddress.city}"id="bi_City" name="bi_City" placeholder="" class="input-xlarge" >
+            </td>
+            </tr>
+              <tr>
+               <td>
+                  <label>State:</label>
+                  <input type="text" th:field ="*{billingaddress.state}"id="bi_State" name="bi_State" placeholder="" class="input-xlarge" >
+               </td>
+              </tr>
+            <tr>
+            <td>
+                <label>Zipcode:</label>
+                <input type="text" th:field ="*{billingaddress.zipcode}"id="bi_Zipcode" name="bi_Zipcode" placeholder="" class="input-xlarge" >
+            </td>
+                </tr>
+        </table>
+    </div>
+    <div class="container">
+        <div class="row"><h3 style="text-align:center;">ShippingAddress</h3>            </div>
+            <table class="table table-striped table-bordered" style="display:inlineElements">
+                    <tr>
+
+                        <td>
+                            <label>Name:</label>
+                            <input type="text" th:field ="*{shippingaddress.shippingName}"id="sh_name" name="sh_name" placeholder="" class="input-xlarge" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Address1:</label>
+                            <input type="text" th:field ="*{shippingaddress.shippingAddress1}"id="sh_Address1" name="sh_Address1" placeholder="" class="input-xlarge" >
+                             </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Address2:</label>
+                            <input type="text" th:field ="*{shippingaddress.shippingAddress2}"id="sh_Address2" name="sh_Address2" placeholder="" class="input-xlarge" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>City:</label>
+                            <input type="text" th:field ="*{shippingaddress.shippingCity}"id="sh_City" name="sh_City" placeholder="" class="input-xlarge" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>State:</label>
+                            <input type="text" th:field ="*{shippingaddress.shippingState}"id="sh_State" name="sh_State" placeholder="" class="input-xlarge" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Zipcode:</label>
+                            <input type="text" th:field ="*{shippingaddress.shippingZipcode}"id="sh_Zipcode" name="sh_Zipcode" placeholder="" class="input-xlarge" >
+                        </td>
+                    </tr>
+                </table>
+
+    </div>
+    <div class="container">
+        <div class="row"><h3 style="text-align:center;">Payment</h3></div>
+         <table class="table table-striped table-bordered" style="display:inlineElements">
+            <tr>
+
+                <td>
+                    <label>CardName:</label>
+                    <input type="text" th:field ="*{payment.cardName}"id="cardName" name="CardName" placeholder="" class="input-xlarge" >
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>CardNumber:</label>
+                    <input type="text" th:field ="*{payment.cardNumber}"id="cardNumber" name="CardNumber" placeholder="" class="input-xlarge" >
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>cvc:</label>
+                    <input type="text" th:field ="*{payment.cvc}"id="cvc" name="cvc" placeholder="" class="input-xlarge" >
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>ExpiryMonth:</label>
+                    <input type="text" th:field ="*{payment.expiryMonth}"id="expiryMonth" name="ExpiryMonth" placeholder="" class="input-xlarge" >
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Expiryyear:</label>
+                    <input type="text" th:field ="*{payment.expiryYear}"id="expiryyear" name="Expiryyear" placeholder="" class="input-xlarge" >
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>HolderName:</label>
+                    <input type="text" th:field ="*{payment.holderName}"id="holderName" name="HolderName" placeholder="" class="input-xlarge" >
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Type</label>
+                    <input type="text" th:field ="*{payment.type}"id="type" name="Type" placeholder="" class="input-xlarge" >
+                </td>
+            </tr>
+        </table>
+
+</div>
+
+    <div class="control-group">
+        <!-- Button -->
+        <div class="controls">
+            <button class="btn btn-success">Confirm Order</button>
+        </div>
+    </div>
+</form>
+</body>
+</html>
